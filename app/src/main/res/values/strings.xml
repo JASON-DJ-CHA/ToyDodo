@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ToyTodoApplication</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="input_email">이메일을 입력해주세요</string>
+    <string name="input_pw">비밀번호를을 입력해주세요</string>
+    <string name="input_pw2">다시 비밀번호를을 입력해주세요</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_registered">Already Registered !!</string>
+    <string name="not_registered">Not Registered Yet !!</string>
+    <string name="task">해야할 일을 입력하세요!</string>
+
+
+</resources>
