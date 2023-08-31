@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.toytodoapplication.view.SplashFragment"
+        android:name="com.example.toytodoapplication.view.main.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -21,7 +21,7 @@
     </fragment>
     <fragment
         android:id="@+id/signinFragment"
-        android:name="com.example.toytodoapplication.view.SigninFragment"
+        android:name="com.example.toytodoapplication.view.main.SigninFragment"
         android:label="fragment_signin"
         tools:layout="@layout/fragment_signin" >
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.toytodoapplication.view.SignUpFragment"
+        android:name="com.example.toytodoapplication.view.main.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.toytodoapplication.view.HomeFragment"
+        android:name="com.example.toytodoapplication.view.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 </navigation>

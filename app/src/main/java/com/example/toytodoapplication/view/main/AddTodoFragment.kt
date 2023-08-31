@@ -1,20 +1,20 @@
-package com.example.toytodoapplication.view
+package com.example.toytodoapplication.view.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import com.example.toytodoapplication.R
 import com.example.toytodoapplication.databinding.FragmentAddTodoBinding
+import com.example.toytodoapplication.db.TodoData
 import com.google.android.material.textfield.TextInputEditText
 
 class AddTodoFragment : DialogFragment() {
 
     private lateinit var binding:FragmentAddTodoBinding
     private lateinit var listener : DialogNextBtnClickListener
+    private var toDoData: TodoData? = null
 
     fun setListener(listener : DialogNextBtnClickListener){
         this.listener = listener
@@ -52,6 +52,7 @@ class AddTodoFragment : DialogFragment() {
 
     interface DialogNextBtnClickListener{
         fun onSaveTask(todo : String, todoEt : TextInputEditText)
+
     }
 
 

@@ -1,4 +1,4 @@
-package com.example.toytodoapplication.view
+package com.example.toytodoapplication.view.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
