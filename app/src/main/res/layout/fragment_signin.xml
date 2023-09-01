@@ -81,6 +81,8 @@
                 android:layout_height="match_parent"
                 android:background="@color/white"
                 android:hint="@string/input_email"
+                android:textColor="@color/text_color"
+
                 android:inputType="textEmailAddress"
                 android:paddingStart="12dp"
                 android:paddingTop="15dp"
@@ -120,6 +122,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
+                android:textColor="@color/text_color"
+
                 android:hint="@string/input_pw"
                 android:inputType="textPassword"
                 android:paddingStart="12dp"

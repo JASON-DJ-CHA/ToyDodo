@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "742883057509",
-    "project_id": "toytodoapplication",
-    "storage_bucket": "toytodoapplication.appspot.com"
+    "project_number": "982882278507",
+    "project_id": "todolist-bb159",
+    "storage_bucket": "todolist-bb159.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:742883057509:android:c774ac7f0d917c463ecb8c",
+        "mobilesdk_app_id": "1:982882278507:android:f570e5cfa0491d2ccde52e",
         "android_client_info": {
           "package_name": "com.example.toytodoapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "742883057509-ta9cpvgq5asf1kbe2lig50eqolron2s1.apps.googleusercontent.com",
+          "client_id": "982882278507-uap8ptinhjhf5u8m28381rqln9e51gd3.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDtn-vwrtgBg_d1m41Jeyzpih2lMH81EMs"
+          "current_key": "AIzaSyAiI9GdgD2ws-3p4Dl0Ujt5_86cvEXS10k"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "742883057509-ta9cpvgq5asf1kbe2lig50eqolron2s1.apps.googleusercontent.com",
+              "client_id": "982882278507-uap8ptinhjhf5u8m28381rqln9e51gd3.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

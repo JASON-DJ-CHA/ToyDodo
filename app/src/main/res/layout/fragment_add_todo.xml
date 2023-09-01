@@ -47,6 +47,7 @@
                     android:layout_height="50dp"
                     android:background="@color/white"
                     android:hint="@string/task"
+                    android:textColor="@color/text_color"
                     android:inputType="textEmailAddress"
                     android:paddingStart="12dp"
                     android:paddingTop="15dp" />
