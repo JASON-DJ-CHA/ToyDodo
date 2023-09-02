@@ -20,6 +20,17 @@ class AddTodoFragment : DialogFragment() {
         this.listener = listener
     }
 
+    companion object{
+        const val TAG = "AddTodoFragment"
+        @JvmStatic
+        fun newInstance(taskId:String, task:String) = AddTodoFragment().apply {
+            arguments = Bundle().apply {
+                putString("taskId", taskId)
+                putString("task", task)
+            }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -32,6 +43,13 @@ class AddTodoFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (arguments != null){
+            toDoData = TodoData(arguments?.getString("taskId").toString() ,
+                arguments?.getString("task").toString()
+            )
+            binding.todoEt.setText(toDoData?.task)
+        }
+
         registerEvents()
     }
 
@@ -40,7 +58,12 @@ class AddTodoFragment : DialogFragment() {
         binding.todoNextBtn.setOnClickListener {
             val todoTask = binding.todoEt.text.toString()
             if (todoTask.isNotEmpty()){
-                listener.onSaveTask(todoTask, binding.todoEt)
+                if(toDoData == null){
+                    listener.onSaveTask(todoTask, binding.todoEt)
+                }else{
+                    toDoData?.task = todoTask
+                    listener.onUpdateTask(toDoData!!, binding.todoEt)
+                }
             }else{
                 Toast.makeText(context, "해야할 일을 입력해주세요!", Toast.LENGTH_SHORT).show()
             }
@@ -52,6 +75,8 @@ class AddTodoFragment : DialogFragment() {
 
     interface DialogNextBtnClickListener{
         fun onSaveTask(todo : String, todoEt : TextInputEditText)
+        fun onUpdateTask(todoData: TodoData , todoEt : TextInputEditText)
+
 
     }
 

@@ -30,7 +30,7 @@ class HomeFragment : Fragment(), AddTodoFragment.DialogNextBtnClickListener,
     private lateinit var databaseRef :DatabaseReference
     private lateinit var navController: NavController
     private lateinit var binding : FragmentHomeBinding
-    private lateinit var popUpFragment : AddTodoFragment
+    private var popUpFragment : AddTodoFragment? = null
     private lateinit var adapter : TodoAdapter
     private lateinit var mList: MutableList<TodoData>
 
@@ -54,11 +54,14 @@ class HomeFragment : Fragment(), AddTodoFragment.DialogNextBtnClickListener,
 
     private fun registerEvents() {
         binding.addBtnHome.setOnClickListener {
+            if(popUpFragment != null){
+                childFragmentManager.beginTransaction().remove(popUpFragment!!).commit()
+            }
             popUpFragment = AddTodoFragment()
-            popUpFragment.setListener(this)
-            popUpFragment.show(
+            popUpFragment!!.setListener(this)
+            popUpFragment!!.show(
                 childFragmentManager,
-                "AddTodoFragment"
+                AddTodoFragment.TAG
             )
         }
     }
@@ -78,18 +81,36 @@ class HomeFragment : Fragment(), AddTodoFragment.DialogNextBtnClickListener,
         binding.todoRV.adapter =adapter
     }
 
+    // todolist저장하기
     override fun onSaveTask(todo: String, todoEt: TextInputEditText) {
 
         databaseRef.push().setValue(todo).addOnCompleteListener {
             if (it.isSuccessful){
                 Toast.makeText(context, "입력이 완료되었습니다.", Toast.LENGTH_SHORT).show()
-                todoEt.text = null
 
             }else{
                 Toast.makeText(context, it.exception?.message, Toast.LENGTH_SHORT).show()
             }
+            todoEt.text = null
 
-            popUpFragment.dismiss()
+            popUpFragment!!.dismiss()
+        }
+    }
+
+    // todolist 수정하기
+    override fun onUpdateTask(todoData: TodoData, todoEt: TextInputEditText) {
+        val map = HashMap<String, Any>()
+        map[todoData.taskID] = todoData.task
+        databaseRef.updateChildren(map).addOnCompleteListener{
+            if (it.isSuccessful){
+                Toast.makeText(context, "성공적으로 변경되었습니다.", Toast.LENGTH_SHORT).show()
+
+            }else{
+                Toast.makeText(context, it.exception?.message, Toast.LENGTH_SHORT).show()
+            }
+            todoEt.text = null
+
+            popUpFragment!!.dismiss()
         }
     }
 
@@ -130,7 +151,12 @@ class HomeFragment : Fragment(), AddTodoFragment.DialogNextBtnClickListener,
     }
 
     override fun onEditTaskBtnClicked(todoData: TodoData) {
-        TODO("Not yet implemented")
+        if (popUpFragment != null){
+            childFragmentManager.beginTransaction().remove(popUpFragment!!).commit()
+        }
+        popUpFragment = AddTodoFragment.newInstance(todoData.taskID, todoData.task)
+        popUpFragment!!.setListener(this)
+        popUpFragment!!.show(childFragmentManager, AddTodoFragment.TAG)
     }
 
 }
