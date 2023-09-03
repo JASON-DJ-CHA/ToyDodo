@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.toytodoapplication.R
 import com.example.toytodoapplication.databinding.FragmentHomeBinding
 import com.example.toytodoapplication.db.TodoData
 import com.example.toytodoapplication.view.adapter.TodoAdapter
@@ -35,6 +36,7 @@ class HomeFragment : Fragment(), AddTodoFragment.DialogNextBtnClickListener,
     private lateinit var mList: MutableList<TodoData>
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -53,6 +55,17 @@ class HomeFragment : Fragment(), AddTodoFragment.DialogNextBtnClickListener,
     }
 
     private fun registerEvents() {
+
+        binding.logout.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_signinFragment)
+            auth.signOut()
+        }
+
+        binding.moveTimer.setOnClickListener {
+            navController.navigate(R.id.action_homeFragment_to_timeFragment)
+
+        }
+
         binding.addBtnHome.setOnClickListener {
             if(popUpFragment != null){
                 childFragmentManager.beginTransaction().remove(popUpFragment!!).commit()

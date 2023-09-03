@@ -5,10 +5,10 @@
     <string name="input_email">이메일을 입력해주세요</string>
     <string name="input_pw">비밀번호를을 입력해주세요</string>
     <string name="input_pw2">다시 비밀번호를을 입력해주세요</string>
-    <string name="sign_in">Sign In</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="already_registered">Already Registered !!</string>
-    <string name="not_registered">Not Registered Yet !!</string>
+    <string name="sign_in">로그인</string>
+    <string name="sign_up">회원가입</string>
+    <string name="already_registered">아이디가 있으신가요?</string>
+    <string name="not_registered">아직 아이디가 없다면!!</string>
     <string name="task">해야할 일을 입력하세요!</string>
 
 
